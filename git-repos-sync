@@ -52,13 +52,13 @@ else
 fi
 
 echo "Push merged changes in $3 to $2"
-if ! git push $2 HEAD:$3; then
+if ! git push $2 HEAD:$3 --tags; then
 	>&2 echo "Fatal: unable to push to $2, rerun the script as soon as connection restored."
 	exit 1
 
 fi	
 echo "Push merged changes in $3 to $1"
-if ! git push $1 HEAD:$3; then
+if ! git push $1 HEAD:$3 --tags; then
 	>&2 echo "Fatal: unable to push to $1, rerun the script as soon as connection restored."
 	exit 1
 
